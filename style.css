@@ -1,0 +1,709 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700i');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400');
+
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    margin: 0px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #main-game {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+
+  h1 {
+    color: black;
+  }
+
+  #game-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+  }
+
+  #instructions {
+    margin: 0 20px;
+    max-width: 250px;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  #instructions div h3 {
+    margin: 0;
+    font-size: 25px;
+  }
+
+  #instructions div h4 {
+    text-align: center;
+    color: white;
+    padding: 5px;
+    font-weight: 100;
+    border-radius: 20px;
+    background-color: rgb(131, 71, 81);
+    width: 150px;
+    -webkit-box-shadow: -1px -1px 5px 0px rgba(74, 57, 57, 0.75);
+    -moz-box-shadow: -1px -1px 5px 0px rgba(74, 57, 57, 0.75);
+    box-shadow: -1px -1px 5px 0px rgba(74, 57, 57, 0.75);
+  }
+
+  #game-screen {
+    width: 365px;
+    height: 330px;
+    margin: 0 auto;
+    background-color: rgb(70, 69, 69);
+    border: 3px solid rgb(46, 46, 46);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 13px 13px 50px 13px;
+    position: relative;
+    padding-bottom: 45px;
+    -webkit-box-shadow: 0px 2px 7px 0px rgba(53, 53, 53, 0.75);
+    -moz-box-shadow: 0px 2px 7px 0px rgba(53, 53, 53, 0.75);
+    box-shadow: 0px 2px 7px 0px rgba(53, 53, 53, 0.75);
+  }
+
+  #power {
+    content: "";
+    position: absolute;
+    width: 7.5px;
+    height: 7.5px;
+    top: 125px;
+    left: 18px;
+  }
+
+  #power:before {
+    content: "POWER";
+    position: relative;
+    right: 16px;
+    font-size: 8px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(230, 226, 226);
+    text-shadow: 0px 0px 2px rgba(0,0,0,1);
+  }
+
+  #power-btn {
+    position: absolute;
+    top: 120px;
+    left: 1px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgb(118, 16, 16);
+  }
+
+  .power-btn-dec {
+    position: absolute;
+    top: 120px;
+    width: 7.5px;
+    height: 7.5px;
+    border-radius: 50%;
+    border-right:3px solid rgb(225, 220, 220);
+  }
+
+  #power-btn-dec-1 {
+    left: 5px;
+  }
+
+  #power-btn-dec-2 {
+    left: 12px;
+  }
+
+  #power-btn-dec-3 {
+    left: 19px;
+  }
+
+  #gameboy-logo {
+    content: "";
+    position: absolute;
+    top: 330px;
+    left: 110px;
+  }
+
+  #gameboy-logo:before {
+    content: "GAME BOY";
+    position: relative;
+    letter-spacing: 1px;
+    right: 16px;
+    font-size: 22px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(240, 240, 240);
+    text-shadow: 0px 0px 6px rgba(0,0,0,1);
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  #gameboy-color-logo {
+    position: absolute;
+    top: 330px;
+    left: 205px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -5.5px;
+    font-family: 'Comic Sans', 'Comic Sans MS', 'ChalkboardSE-Bold', sans-serif, cursive;
+  }
+
+  #nintendo-logo {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 175px;
+  }
+
+  #nintendo-logo:before {
+    content: "Nintendo";
+    letter-spacing: 1px;
+    position: relative;
+    right: 16px;
+    font-size: 21px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(52, 21, 116);
+    font-weight: 700;
+    border: 2px solid rgb(52, 21, 116);
+    padding: 2.5px 15px 2.5px 15px;
+    border-radius: 25px;
+  }
+  /* font-family: 'Source Sans Pro', sans-serif; */
+
+  #content {
+    border: 3px solid black;
+    border-radius: 5px;
+    width: 300px;
+    height: 300px;
+    display: block;
+    background: rgb(140, 140, 113);
+  }
+
+  .intro-logo {
+    position: absolute;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: -2px;
+    opacity: 0;
+    width: 555px;
+    left: -90px;
+    top: 100px;
+    -webkit-transform: skew(-5deg);
+    transform: skew(-5deg);
+    overflow: hidden;
+    white-space: nowrap;
+    color: #3232fc;
+    background: -webkit-linear-gradient(0deg, #3232fc 40%, #85e367 40%, #85e367 45%, #ff52e8 45%, #ff52e8 50%, #ff0151 50%, #ff0151 55%, #f9e52e 55%, #f9e52e 60%, #f0f0f0 60%);
+    background-position: 165px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: screen-gameboy-text 7s 1 linear;
+    animation: screen-gameboy-text 7s 1 linear;
+  }
+
+  .intro-logo-nintendo {
+    position: absolute;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+    width: 555px;
+    left: -92.5px;
+    top: 160px;
+    overflow: hidden;
+    color: #3f3f41;
+  }
+
+  .intro-background {
+    background-color: white !important;
+  }
+
+  #controllers-container {
+    position: relative;
+    display: block;
+    margin-top: 15px;
+  }
+
+  #direction-buttons {
+    position: relative;
+    margin-left: 40px;
+    top: 60px;
+  }
+
+  #direction-buttons:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 30px;
+    left: 30px;
+    width: 30px;
+    height: 30px;
+    background-color: #353434;
+    border-radius: 100%;
+  }
+  #direction-buttons #vertical,
+  #direction-buttons #horizontal {
+    position: absolute;
+    left: 30px;
+    width: 30px;
+    height: 90px;
+    background: #444;
+    border-radius: 5px;
+  }
+
+  #vertical-up {
+    position: absolute;
+    top: 5px;
+    left: 2.9px;
+    z-index: 1;
+  }
+
+  #vertical-up:before {
+    position: absolute;
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid rgb(40, 40, 40);
+  }
+
+  #vertical-down {
+    position: absolute;
+    top: 75px;
+    left: 2.9px;
+    z-index: 1;
+  }
+
+  #vertical-down:before {
+    position: absolute;
+    content: "";
+    width: 0; 
+    height: 0; 
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid rgb(40, 40, 40);
+  }
+
+  #horizontal-left {
+    position: absolute;
+    top: 68px;
+    left: 9px;
+    z-index: 1;
+  }
+
+  #horizontal-left:before {
+    position: absolute;
+    content: "";
+    width: 0; 
+    height: 0; 
+    transform:rotate(270deg);
+    border-top: 12px solid transparent;
+    border-right: 12px solid rgb(40, 40, 40);
+    border-bottom: 12px solid transparent;
+  } 
+
+ #horizontal-right {
+    position: absolute;
+    top: -1px;
+    left: 9px;
+    z-index: 1;
+  }
+
+  #horizontal-right:before {
+    position: absolute;
+    content: "";
+    width: 0; 
+    height: 0;
+    border-top: 12px solid transparent;
+    border-left: 12px solid rgb(40, 40, 40);
+    transform:rotate(270deg);
+    border-bottom: 12px solid transparent;
+  } 
+
+  
+  #direction-buttons #horizontal {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+  #buttons-A {
+    position: absolute;
+    top: 69px;
+    left: 368px;
+  }
+  #buttons-A:after {
+    content: "A";
+    position: absolute;                      
+    width: 32px;
+    height: 32px;
+    background: #3f3e3e;
+    color: rgb(45, 43, 43);
+    font-size: 30px;
+    text-align: center;
+    padding: 2.8px;
+    border-radius: 100%;
+    border: 2px solid rgb(45, 43, 43);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(53, 53, 53, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(53, 53, 53, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(53, 53, 53, 0.75);
+  }
+
+  #buttons-B {
+    position: absolute;
+    top: 110px;
+    left: 315px;
+  }
+  #buttons-B:after {
+    content: "B";
+    position: absolute;                      
+    width: 32px;
+    height: 32px;
+    background: #3f3e3e;
+    color: rgb(45, 43, 43);
+    font-size: 30px;
+    text-align: center;
+    padding: 2.8px;
+    border-radius: 100%;
+    border: 2px solid rgb(45, 43, 43);
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(53, 53, 53, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(53, 53, 53, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(53, 53, 53, 0.75);
+  }
+
+  #bottom-button-1 {
+    position: absolute;
+    bottom: -220px;
+    left: 175px;
+  }
+
+  #bottom-button-1:before {
+    content: "";
+    position: relative;
+    background: #3f3e3e;
+    border: 2px solid rgb(45, 43, 43);
+    padding: 0px 18px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(53, 53, 53, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(53, 53, 53, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(53, 53, 53, 0.75);
+  }
+
+  #bottom-button-1 span {
+    color: #323030;
+    display: block;
+    padding-top: 4px;
+    padding-left: 1px;
+  }
+
+  #bottom-button-2 span {
+    color: #323030;
+    display: block;
+    padding-left: 5px;
+    padding-top: 4px;
+  }
+
+  #bottom-button-2 {
+    position: absolute;
+    bottom: -220px;
+    left: 230px;
+  }
+
+  #bottom-button-2:before {
+    content: "";
+    position: relative;
+    background: #3f3e3e;
+    border: 2px solid rgb(45, 43, 43);
+    padding: 0px 18px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(53, 53, 53, 0.75);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(53, 53, 53, 0.75);
+    box-shadow: 0px 2px 5px 0px rgba(53, 53, 53, 0.75);
+  }
+
+  #bottom-button-2:hover::before {
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
+    filter: drop-shadow(1.5px 1.5px 1.5px rgba(0,0,0,.5));
+    transition: all .3s ease-in-out;
+    transform: scale(0.85); 
+  }
+
+  #speaker-container {
+    position: absolute;
+    bottom: -180px;
+    left: 240px;
+  }
+
+  #speaker-container-stuff {
+    position: absolute;
+    border-radius: 2px;
+    width: 5px;
+    height: 5px;
+    left: 95px;
+    bottom: 10px;
+    visibility: visible;
+    box-shadow: 5px 5px rgb(38, 35, 35), 
+    30px 5px rgb(38, 35, 35), 
+    55px 5px rgb(38, 35, 35),
+    -10px 20px rgb(38, 35, 35),
+    17px 20px rgb(38, 35, 35), 
+    40px 20px rgb(38, 35, 35), 
+    67px 20px rgb(38, 35, 35),
+    5px 35px rgb(38, 35, 35),
+    30px 35px rgb(38, 35, 35),
+    55px 35px rgb(38, 35, 35),
+    -10px 50px rgb(38, 35, 35),
+    17px 50px rgb(38, 35, 35),
+    40px 50px rgb(38, 35, 35), 
+    67px 50px rgb(38, 35, 35),
+    5px 65px rgb(38, 35, 35),
+    30px 65px rgb(38, 35, 35), 
+    55px 65px rgb(38, 35, 35), 
+    -10px 80px rgb(38, 35, 35), 
+    17px 80px rgb(38, 35, 35),
+    40px 80px rgb(38, 35, 35), 
+    67px 80px rgb(38, 35, 35), 
+    5px 95px rgb(38, 35, 35),
+    30px 95px rgb(38, 35, 35), 
+    55px 95px rgb(38, 35, 35);
+  }
+
+  #comm {
+    position: absolute;
+    top: -394px;
+    left: 153px;
+  }
+
+  #comm-container #comm:before {
+    position: absolute;
+    content: "COMM";
+    right: 16px;
+    font-size: 12px;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: rgb(52, 21, 116);
+    font-weight: 700;
+  }
+
+  #comm-detail {
+    position: absolute;
+    top: -391px;
+    left: 156px;
+  }
+
+  #comm-container #comm-detail:before {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 9px solid rgb(52, 21, 116);
+    left: -65px;
+  }
+
+  #gameboy-container {
+    position: relative;
+    background-color: rgb(97, 64, 162);
+    border-radius: 12px 12px 69px 12px;
+    box-shadow: 6.4px 6.4px rgba(0,0,0,0.1);
+    width: 440px;
+    height: 700px;
+    padding-top: 15px;
+  }
+
+  .grow {
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
+    filter: drop-shadow(1.5px 1.5px 1.5px rgba(0,0,0,.5));
+    transition: all .3s ease-in-out;
+    transform: scale(0.85); 
+  }
+
+  @keyframes screen-gameboy-text {
+    0% {
+      color: #f9e52e;
+      background-position: -165px;
+      opacity: 0;
+    }
+    63.9% {
+      opacity: 0;
+    }
+    64% {
+      color: #f9e52e;
+      background-position: -165px;
+      opacity: 1;
+    }
+    66.5% {
+      color: #f9e52e;
+    }
+    67% {
+      color: #ff0151;
+    }
+    69.5% {
+      color: #ff0151;
+    }
+    70% {
+      color: #ff52e8;
+    }
+    72.5% {
+      color: #ff52e8;
+    }
+    73% {
+      color: #85e367;
+    }
+    75.5% {
+      color: #85e367;
+    }
+    76% {
+      color: #3232fc;
+    }
+    78% {
+      color: #3232fc;
+      background-position: 165px;
+    }
+    87% {
+      opacity: 1;
+    }
+    92% {
+      opacity: 0;
+    }
+  }
+
+  @-moz-keyframes screen-gameboy-text {
+    0% {
+      color: #f9e52e;
+      background-position: -160px;
+      opacity: 0;
+    }
+    63.9% {
+      opacity: 0;
+    }
+    64% {
+      color: #f9e52e;
+      background-position: -200px;
+      opacity: 1;
+    }
+    66.5% {
+      color: #f9e52e;
+    }
+    67% {
+      color: #ff0151;
+    }
+    69.5% {
+      color: #ff0151;
+    }
+    70% {
+      color: #ff52e8;
+    }
+    72.5% {
+      color: #ff52e8;
+    }
+    73% {
+      color: #85e367;
+    }
+    75.5% {
+      color: #85e367;
+    }
+    76% {
+      color: #3232fc;
+    }
+    78% {
+      color: #3232fc;
+      background-position: 160px;
+    }
+    87% {
+      opacity: 1;
+    }
+    92% {
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes screen-gameboy-text {
+    0% {
+      color: #f9e52e;
+      background-position: -160px;
+      opacity: 0;
+    }
+    63.9% {
+      opacity: 0;
+    }
+    64% {
+      color: #f9e52e;
+      background-position: -200px;
+      opacity: 1;
+    }
+    66.5% {
+      color: #f9e52e;
+    }
+    67% {
+      color: #ff0151;
+    }
+    69.5% {
+      color: #ff0151;
+    }
+    70% {
+      color: #ff52e8;
+    }
+    72.5% {
+      color: #ff52e8;
+    }
+    73% {
+      color: #85e367;
+    }
+    75.5% {
+      color: #85e367;
+    }
+    76% {
+      color: #3232fc;
+    }
+    78% {
+      color: #3232fc;
+      background-position: 160px;
+    }
+    87% {
+      opacity: 1;
+    }
+    92% {
+      opacity: 0;
+    }
+  }
+
+  @media only screen and (max-width: 800px){
+    #main-game {
+      flex-flow: column nowrap;
+    }
+    #instructions {
+      font-size: 14px;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-evenly;
+      max-width: 800px;
+    }
+
+    #instructions div {
+      margin: 5px 20px;
+    }
+
+    #instructions div h3,
+    #instructions div h4 {
+      font-size: 18px;
+    }
+
+    #instructions div h4 {
+      width: 100px;
+      padding: 2px;
+    }
+  }
